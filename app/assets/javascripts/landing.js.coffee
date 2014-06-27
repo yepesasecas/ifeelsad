@@ -20,3 +20,4 @@ $(document).ready ->
   $("#btnHappy").on "click", (e) ->
     e.preventDefault()
     getIpAndSendFeeling(false)
+
