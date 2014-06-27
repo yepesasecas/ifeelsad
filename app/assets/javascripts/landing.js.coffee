@@ -1,23 +1,22 @@
-getIP = ->
-  $.get "http://freegeoip.net/json/", (response)->
-    console.log response
+getIpAndSendFeeling = (sad)->
+  $.get "http://freegeoip.net/json/", (response)-> 
+    data = {feeling: {sad:sad, ip:response.ip, country_name:response.country_name, country_code:response.country_code }}
+    createFeeling(data)
 
-createFeeling = (sadBoolean)->
+createFeeling = (nData)->
   $.ajax {
       type:     "POST",
       url:      "/feelings"
-      data:     { feeling:{ sad: sadBoolean }},
+      data:     nData,
       success:  console.log "feeling posted",
       dataType: "JSON"
     }
 
 $(document).ready ->
-  getIP()
-
   $("#btnSad").on "click", (e) ->
     e.preventDefault()
-    createFeeling(true)
+    getIpAndSendFeeling(true)
 
   $("#btnHappy").on "click", (e) ->
     e.preventDefault()
-    createFeeling(false)
+    getIpAndSendFeeling(false)

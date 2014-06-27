@@ -1,9 +1,9 @@
 class FeelingsController < ApplicationController
 
   def index
-    @feeling = Feeling.new sad: true
+    @feelings = Feeling.all
     respond_to do |format|
-      format.json  { render :json => @feeling }
+      format.json  { render :json => @feelings }
     end
   end
 

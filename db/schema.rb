@@ -11,12 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627034526) do
+ActiveRecord::Schema.define(version: 20140627210647) do
 
   create_table "feelings", force: true do |t|
     t.boolean  "sad"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ip"
+    t.string   "country_name"
+    t.string   "country_code"
   end
 
   create_table "feels", force: true do |t|
