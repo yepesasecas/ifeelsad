@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "visitors#index"
+  get 'landing/index'
+
+  root to: 'landing#index'
 end
