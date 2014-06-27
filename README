@@ -1,0 +1,4 @@
+RECIPES
+["core", "deployment", "devise", "email", "extras", "frontend", "gems", "git", "init", "learn_rails", "omniauth", "pages", "rails_bootstrap", "rails_devise", "rails_devise_pundit", "rails_foundation", "rails_omniauth", "rails_signup_download", "railsapps", "readme", "roles", "setup", "tests"]
+PREFERENCES
+{:git=>true, :apps4=>"rails-bootstrap", :authentication=>false, :authorization=>false, :better_errors=>true, :database=>"default", :deployment=>"none", :devise_modules=>false, :email=>"none", :form_builder=>false, :frontend=>"bootstrap3", :local_env_file=>false, :pry=>false, :quiet_assets=>true, :pages=>"about", :dev_webserver=>"webrick", :prod_webserver=>"unicorn", :templates=>"haml", :tests=>"none"}
