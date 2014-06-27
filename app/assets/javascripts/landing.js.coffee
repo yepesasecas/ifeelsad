@@ -1,3 +1,23 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+getIP = ->
+  $.get "http://freegeoip.net/json/", (response)->
+    console.log response
+
+createFeeling = (sadBoolean)->
+  $.ajax {
+      type:     "POST",
+      url:      "/feelings"
+      data:     { feeling:{ sad: sadBoolean }},
+      success:  console.log "feeling posted",
+      dataType: "JSON"
+    }
+
+$(document).ready ->
+  getIP()
+
+  $("#btnSad").on "click", (e) ->
+    e.preventDefault()
+    createFeeling(true)
+
+  $("#btnHappy").on "click", (e) ->
+    e.preventDefault()
+    createFeeling(false)
