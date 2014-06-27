@@ -13,13 +13,15 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
 group :development do
-  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+end
+group :development, :test do
+  gem 'sqlite3'
 end
 group :production do
   gem 'rails_12factor'
