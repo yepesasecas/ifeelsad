@@ -8,6 +8,5 @@ Bundler.require(*Rails.groups)
 
 module Ifeelsad
   class Application < Rails::Application
-    config.assets.compile=true
   end
 end
