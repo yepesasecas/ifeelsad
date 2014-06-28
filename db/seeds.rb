@@ -171,5 +171,5 @@ countries =[
 ]
 
 countries.each do |country|
-  
+  Country.create name: country[:name], code: country[:code], latitude: country[:latitude], longitude: country[:longitude]
 end
