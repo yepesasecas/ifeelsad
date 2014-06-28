@@ -416,7 +416,7 @@ File.open("countries.json", "a+") do |file|
   file.puts "["
   mapData.each do |country|
     coords = latlong[country["code"]]
-    file.puts "{name: '#{country['name']}', code: '#{country['code']}', latitude: #{coords['latitude']}, longitude: #{coords['longitude']}}"
+    file.puts "{name: '#{country['name']}', code: '#{country['code']}', latitude: #{coords['latitude']}, longitude: #{coords['longitude']}},"
   end
   file.puts "]"
 end
