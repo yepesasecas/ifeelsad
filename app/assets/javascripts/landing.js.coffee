@@ -12,7 +12,12 @@ createFeeling = (nData)->
       dataType: "JSON"
     }
 
+getFeelings = ->
+  $.getJSON "/feelings", (response)-> alert "TODO"
+
 $(document).ready ->
+  loadData()
+
   $("#btnSad").on "click", (e) ->
     e.preventDefault()
     getIpAndSendFeeling(true)
