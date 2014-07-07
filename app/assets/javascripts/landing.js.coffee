@@ -16,8 +16,6 @@ getFeelings = ->
   $.getJSON "/feelings", (response)-> alert "TODO"
 
 $(document).ready ->
-  loadData()
-
   $("#btnSad").on "click", (e) ->
     e.preventDefault()
     getIpAndSendFeeling(true)
@@ -25,3 +23,5 @@ $(document).ready ->
   $("#btnHappy").on "click", (e) ->
     e.preventDefault()
     getIpAndSendFeeling(false)
+
+  loadData()
