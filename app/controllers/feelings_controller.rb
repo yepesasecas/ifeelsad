@@ -1,7 +1,6 @@
 class FeelingsController < ApplicationController
 
   def index
-
     @feelings = Country.countries_json
     respond_to do |format|
       format.json  { render :json => @feelings }
@@ -9,16 +8,13 @@ class FeelingsController < ApplicationController
   end
 
   def create
-
-    @feeling   = Feeling.create feeling_params
-    country    = Country.find_by_code(@feeling.country_code)
-
+    @feeling = Feeling.create feeling_params
+    country  = Country.find_by_code(@feeling.country_code)
+    data     = { message: 'pusher working!', 
+                    sads: Feeling.count }
+    
     @feeling.update_attributes country_id: country.id
-
-    Pusher['test_channel'].trigger('my_event', {
-      message: '===== >> hello world from feelings_controller',
-      sads: Feeling.count
-    })
+    PusherModule.notify_visitors_new_feeling(data)
 
     respond_to do |format|
       format.json  { render :json => @feeling }
