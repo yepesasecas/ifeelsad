@@ -18,14 +18,12 @@ class Country < ActiveRecord::Base
     count = self.feeling.count
     {
       title:     name, 
-      value:     10, 
+      value:     count, 
       latitude:  latitude, 
       longitude: longitude,
       type:      "circle", 
       color:     self.random_color, 
       alpha:     0.5,
-      width:     10,
-      height:    10
     }
   end
 

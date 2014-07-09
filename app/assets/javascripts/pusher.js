@@ -6,8 +6,7 @@ var setSads = function(sads){
 };
 
 channel.bind('new_feeling', function(data) {
-  console.log(data.message);
-  console.log(data.sads);
   setSads(data.sads);
   loadData();
+  alertify.log("Map Data Loaded.");
 });

@@ -35,8 +35,42 @@ AmCharts.ready(function() {
 
 function loadData(){
   $.getJSON("/feelings", function(response){
-    setData(response);
+    filterData(response);
   });
+}
+
+function filterData(data){
+  MAX_BUBBLE = 50;
+  MIN_BUBBLE = 6;
+  newData    = data;
+  max        = null;
+  maxValue   = 0;
+
+  // SET MAX VALUE
+  for(var i = 0; i < newData.images.length; i++){
+    value = newData.images[i].value;
+    if(maxValue < value){
+      maxValue = value;
+    }
+  }
+  console.log("max_value: " + maxValue);
+
+  //GET NEW VALUES 
+  for(var i = 0; i < newData.images.length; i++){
+    image    = newData.images[i];
+    value    = image.value;
+    newValue = (value * MAX_BUBBLE) / maxValue;
+    // VALIDATE MIN BUBBLE
+    if(newValue < MIN_BUBBLE){
+      newValue = MIN_BUBBLE;
+    }
+    // SET NEW VALUE
+    image.value  = newValue;
+    image.width  = newValue;
+    image.height = newValue;
+  }
+  console.log(newData);
+  setData(newData);
 }
 
 function setData(data){
