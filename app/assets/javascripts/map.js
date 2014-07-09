@@ -25,8 +25,9 @@ AmCharts.ready(function() {
    * selectedColor indicates color of the clicked area.
    */
   map.areasSettings = {
-      autoZoom: true,
-      selectedColor: "#CC0000"
+      autoZoom:      true,
+      selectedColor: "#DDDDDD",
+      balloonText:   "<span style='font-size:14px;'><b>[[title]]</b>: [[value]]</span>"
   };
 
   // write the map to container div
