@@ -11,5 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require alertify_core
+ *= require alertify_default
  *= require_self
  */
