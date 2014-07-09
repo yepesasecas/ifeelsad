@@ -8,7 +8,8 @@ createFeeling = (nData)->
       type:     "POST",
       url:      "/feelings"
       data:     nData,
-      success:  console.log "feeling posted",
+      success:  (response)-> alertify.success "Your sadness is now global :(",
+      error:    (xhr,ajaxOptions, error)-> alertify.error "We have problems. Please Try Again! ",
       dataType: "JSON"
     }
 
