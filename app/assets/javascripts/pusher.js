@@ -3,7 +3,8 @@ var channel = pusher.subscribe('visitors');
 
 channel.bind('new_feeling', function(data) {
   message = data["last_feeling"]["message"];
-  if(message != null){
+  console.log(message);
+  if(message != null && message != "" && message != " "){
     alertify.log(message, "", 0);
   }
   setSads(data.sads);
