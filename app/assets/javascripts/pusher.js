@@ -4,7 +4,7 @@ var channel = pusher.subscribe('visitors');
 channel.bind('new_feeling', function(data) {
   setSads(data.sads);
   loadData();
-  alertify.log("Map Data Loaded.");
+  alertify.log(data.sads + "People sad.");
 });
 
 var setSads = function(sads){
