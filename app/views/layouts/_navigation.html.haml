@@ -11,8 +11,10 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         %form.navbar-form.navbar-left{role: "search"}
-          %input#sad-message.form-control{placeholder: "Tell the world why (Optional)", type: "text"}/
+          %input#sad-message.form-control{placeholder: "Tell the world why (Optional)", type: "text", autofocus:""}/
           %a#btnSad.btn.btn-primary{type: "submit"} I'm Sad :(
-        %li
-          %a#loading{:href => ""} Loading...
+        %li#loading
+          %a{:href => ""} 
+            %span.pull-right loading :(
+            = image_tag "loading.gif"
         = render 'layouts/navigation_links'

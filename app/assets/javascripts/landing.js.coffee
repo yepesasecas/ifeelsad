@@ -9,15 +9,25 @@ getIpAndSendFeeling = (sad)->
 createFeeling = (nData)->
   $.ajax {
       type:       "POST",
-      url:        "/feelings"
+      url:        "/feelings",
       data:       nData,
       beforeSend: -> 
-      success:    (response)-> alertify.success "Your sadness is now global :(",
-      error:      (xhr,ajaxOptions, error)-> alertify.error "We have problems. Please Try Again! ",
+        $("#loading").show()
+      
+      success: (response)-> 
+        alertify.success "Your sadness is now global :("
+        $("#loading").hide()
+      
+      error: (xhr,ajaxOptions, error)-> 
+        alertify.error "We have problems. Please Try Again! "
+        $("#loading").hide()
+      
       dataType:   "JSON"
     }
 
 $(document).ready ->
+  loader = $("#loading")
+  loader.hide()
   $("#btnSad").on "click", (e) ->
     e.preventDefault()
     getIpAndSendFeeling(true)
@@ -30,4 +40,5 @@ $(document).ready ->
     if e.which == 13
       e.preventDefault()
       getIpAndSendFeeling(true)
+      
   loadData()
