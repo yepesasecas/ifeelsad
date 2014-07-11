@@ -3,8 +3,8 @@ var channel = pusher.subscribe('visitors');
 
 channel.bind('new_feeling', function(data) {
   setSads(data.sads);
+  alertify.log(data["last_feeling"]["message"],"",0);
   loadData();
-  alertify.log(data.sads + "People sad.");
 });
 
 var setSads = function(sads){

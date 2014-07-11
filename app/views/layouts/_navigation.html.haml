@@ -7,7 +7,12 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to 'Feel sad?', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
+        %form.navbar-form.navbar-left{role: "search"}
+          %input#sad-message.form-control{placeholder: "Tell the world why (Optional)", type: "text"}/
+          %a#btnSad.btn.btn-primary{type: "submit"} I'm Sad :(
+        %li
+          %a#loading{:href => ""} Loading...
         = render 'layouts/navigation_links'

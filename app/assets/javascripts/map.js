@@ -54,7 +54,6 @@ function filterData(data){
       maxValue = value;
     }
   }
-  console.log("max_value: " + maxValue);
 
   //GET NEW VALUES 
   for(var i = 0; i < newData.images.length; i++){
@@ -70,7 +69,6 @@ function filterData(data){
     image.width  = newValue;
     image.height = newValue;
   }
-  console.log(newData);
   setData(newData);
 }
 

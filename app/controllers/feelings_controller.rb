@@ -10,8 +10,10 @@ class FeelingsController < ApplicationController
   def create
     @feeling = Feeling.create feeling_params
     country  = Country.find_by_code(@feeling.country_code)
-    data     = { message: 'pusher working!', 
-                    sads: Feeling.count }
+    data     = { message:      'pusher working!', 
+                 sads:         Feeling.count,
+                 last_feeling: @feeling
+               }
     
     @feeling.update_attributes country_id: country.id
     PusherModule.notify_visitors_new_feeling(data)
@@ -23,6 +25,6 @@ class FeelingsController < ApplicationController
 
   private
   def feeling_params
-    params.require(:feeling).permit(:sad, :ip, :country_name, :country_code)
+    params.require(:feeling).permit(:sad, :ip, :country_name, :country_code, :message)
   end
 end

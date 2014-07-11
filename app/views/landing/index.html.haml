@@ -4,11 +4,14 @@
       #mapdiv
   .row
     .col-xs-12
-      %h1
-        %span#sads= @sads
-        people sad.
-  .row
-    .col-xs-12
-      %h1 Sad?
-      %a{:href => "#", class:"btn btn-default", id:"btnSad"}   Yes :(
-      %a{:href => "#", class:"btn btn-default", id:"btnHappy"} No :)
+      %h1#sads-count.center
+        %span#sads= "#{@sads}"
+      %h1.center#sads-text
+        %small people sad
+  %hr/
+  / .row
+  /   .col-xs-12
+  /     %h1 Sad?
+  /     %a{:href => "#", class:"btn btn-default", id:"btnSad"}   Yes :(
+  /     %a{:href => "#", class:"btn btn-default", id:"btnHappy"} No :)
+
