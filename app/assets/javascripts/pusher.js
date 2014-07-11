@@ -2,8 +2,11 @@ var pusher  = new Pusher('23323091d73f37df0d95');
 var channel = pusher.subscribe('visitors');
 
 channel.bind('new_feeling', function(data) {
+  message = data["last_feeling"]["message"];
+  if(message != null){
+    alertify.log(message, "", 0);
+  }
   setSads(data.sads);
-  alertify.log(data["last_feeling"]["message"], "", 0);
   loadData();
 });
 
