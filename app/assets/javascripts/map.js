@@ -35,7 +35,7 @@ AmCharts.ready(function() {
 });
 
 function loadData(){
-  $.getJSON("/feelings", function(response){
+  $.getJSON("/countries", function(response){
     filterData(response);
   });
 }

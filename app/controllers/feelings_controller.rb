@@ -1,17 +1,19 @@
 class FeelingsController < ApplicationController
 
   def index
-    @feelings = Country.countries_json
+    @count    = Feeling.count
+    @feelings = Feeling.last 10
+    @response = {count: @count, last: @feelings}
+
     respond_to do |format|
-      format.json  { render :json => @feelings }
+      format.json  { render json: @response }
     end
   end
 
   def create
     @feeling = Feeling.create feeling_params
     country  = Country.find_by_code(@feeling.country_code)
-    data     = { message:      'pusher working!', 
-                 sads:         Feeling.count,
+    data     = { sads:         Feeling.count,
                  last_feeling: @feeling
                }
     

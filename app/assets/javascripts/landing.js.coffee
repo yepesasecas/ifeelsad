@@ -9,6 +9,7 @@ getIpAndSendFeeling = (sad)->
 createFeeling = (nData)->
   $.ajax {
       type:       "POST",
+      dataType:   "JSON",
       url:        "/feelings",
       data:       nData,
       beforeSend: -> 
@@ -22,8 +23,6 @@ createFeeling = (nData)->
       error: (xhr,ajaxOptions, error)-> 
         alertify.error "We have problems. Please Try Again! "
         $("#loading").hide()
-      
-      dataType:   "JSON"
     }
 
 $(document).ready ->
