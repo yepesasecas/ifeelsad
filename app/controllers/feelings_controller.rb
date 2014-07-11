@@ -3,7 +3,8 @@ class FeelingsController < ApplicationController
   def index
     @count    = Feeling.count
     @feelings = Feeling.last 10
-    @response = {count: @count, last: @feelings}
+    @response = {"count" => @count, 
+                  "last" => @feelings}
 
     respond_to do |format|
       format.json  { render json: @response }
