@@ -17,6 +17,7 @@ createFeeling = (nData)->
       success: (response)-> 
         alertify.success "Your sadness is now global :("
         $("#loading").hide()
+        $("input#sad-message").val("")
       
       error: (xhr,ajaxOptions, error)-> 
         alertify.error "We have problems. Please Try Again! "
@@ -40,5 +41,5 @@ $(document).ready ->
     if e.which == 13
       e.preventDefault()
       getIpAndSendFeeling(true)
-      
+
   loadData()
