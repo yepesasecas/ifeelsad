@@ -2,7 +2,7 @@ class FeelingsController < ApplicationController
 
   def index
     @count    = Feeling.count
-    @feelings = Feeling.last 10
+    @feelings = Feeling.with_message.last 10
     @response = {"count" => @count, 
                   "last" => @feelings}
 
