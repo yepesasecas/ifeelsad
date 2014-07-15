@@ -2,27 +2,24 @@ class FeelingsController < ApplicationController
 
   def index
     @count    = Feeling.count
-    @feelings = Feeling.with_message.last 10
-    @response = {"count" => @count, 
-                  "last" => @feelings}
+    @feelings = Feeling.with_message.last 20
+    @response = {count: @count, last:  @feelings}
 
     respond_to do |format|
-      format.json  { render json: @response }
+      format.json { render json: @response }
     end
   end
 
   def create
-    @feeling = Feeling.create feeling_params
+    @feeling = Feeling.create(feeling_params)
     country  = Country.find_by_code(@feeling.country_code)
-    data     = { sads:         Feeling.count,
-                 last_feeling: @feeling
-               }
-    
+    data     = {sads: Feeling.count, last_feeling: @feeling}
+
     @feeling.update_attributes country_id: country.id
     PusherModule.notify_visitors_new_feeling(data)
 
     respond_to do |format|
-      format.json  { render :json => @feeling }
+      format.json { render :json => @feeling }
     end
   end
 
