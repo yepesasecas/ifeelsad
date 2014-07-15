@@ -42,3 +42,4 @@ $(document).ready ->
       getIpAndSendFeeling(true)
 
   loadData()
+  last_messages()
