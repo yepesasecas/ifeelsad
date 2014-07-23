@@ -1,17 +1,17 @@
 .container
   .row
-    .col-xs-12
-      #mapdiv
-  .row
-    .col-xs-12
-      %h1#sads-count.center
-        %span#sads= "#{@sads}"
-      %h1.center#sads-text
-        %small people sad
-  %hr/
-  / .row
-  /   .col-xs-12
-  /     %h1 Sad?
-  /     %a{:href => "#", class:"btn btn-default", id:"btnSad"}   Yes :(
-  /     %a{:href => "#", class:"btn btn-default", id:"btnHappy"} No :)
-
+    .col-xs-12.col-md-4
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Sad messages
+        .panel-body
+          %h1#sads-count.center
+            %span#sads= "#{@sads}"
+          %h1.center#sads-text
+            %small sad messages
+    .col-xs-12.col-md-8
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title World Sad Map
+        .panel-body
+          #mapdiv
